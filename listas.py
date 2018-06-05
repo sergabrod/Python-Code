@@ -1,4 +1,6 @@
 # Listas en Python
+# Son elementos mutables
+
 servidores = ['server1', 'server2', 'server3', 'server-web']
 print (servidores[0])
 servidores[0] = 'server-db'
