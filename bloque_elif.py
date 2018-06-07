@@ -6,6 +6,8 @@ def mayor_de_edad(edad):
 
     if edad < 18:
         print("Usted es menor de edad")
+    elif edad == 18:
+        print("Usted tiene 18 años")
     else:
         print("Usted es mayor de edad")
 
