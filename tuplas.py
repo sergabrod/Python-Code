@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Las tuplas son elementos inmutables en Python
 # No permiten añadir, eliminar, ni mover elementos
 # no permiten búsquedas, sí comprobar si un elemento se encuentra en la tupla

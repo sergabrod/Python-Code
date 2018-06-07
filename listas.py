@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Listas en Python
 # Son elementos mutables
 
