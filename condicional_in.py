@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 # trabajando con condicionales
 
-asignaturas = ('Computación gráfica', 'Calidad de Software', 'Sistemas distribuidos')
+asignaturas = ('computación gráfica', 'calidad de Software', 'sistemas distribuidos')
 print("Asignaturas optativas de la carrera de Sistemas")
 print(' - '.join(asignaturas))
 
 asignatura_elegida = input("Ingrese el nombre de la asignatura a cursar: ")
 
-if asignatura_elegida in asignaturas:
+if asignatura_elegida.lower() in asignaturas:
     print("Asignatura elegida: " + asignatura_elegida)
 else:
     print("La asignatura no está en la lista")
