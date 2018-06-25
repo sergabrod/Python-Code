@@ -5,6 +5,7 @@
 def imprimir(mensaje):
     print(mensaje)
 
+
 def suma(x, y):
     suma = x + y
     return suma
