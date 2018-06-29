@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # Son errores que ocurren en tiempo de ejecución, no son de sintaxis.
 # Manejando errores en tiempo de ejecución
-# Con raise personalizamos el mensaje de la excepción
+# Con raise lanzamos una excepciòn y personalizamos el mensaje de la excepción
 
 
 import math
