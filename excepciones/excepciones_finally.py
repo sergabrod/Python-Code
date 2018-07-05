@@ -22,6 +22,8 @@ def divide_sin_except():
         num1 = float(input("introduzca un número: "))
         num2 = float(input("introduzca otro número: "))
         print("la división es: " + str(num1/num2))
+    except Exception as error:
+        print("Error inesperado ", type(error))
     finally:
         # Sin except da error pero esta instrucción se ejecuta siempre
         print("cálculo finalizado")
