@@ -28,6 +28,7 @@ class Vehiculo(object):
         print("Marca: ", self.marca, "\nModelo: ", self.modelo, "\nEn marcha: ", self.en_marcha, "\nAcelera: ",
               self.acelera, "\nFrena: ", self.frena)
 
+
 # Ahora leemos el archivo generado
 archivo_objetos = open("objetos_coches.bin", "rb")
 coches = pickle.load(archivo_objetos)
