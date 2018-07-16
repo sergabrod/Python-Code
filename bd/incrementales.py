@@ -4,14 +4,14 @@
 
 import sqlite3
 
-conexion = sqlite3.connect("productos_autoincrement.db")
+conexion = sqlite3.connect("productos.db")
 cursor = conexion.cursor()
 
 try:
     cursor.execute("""
         CREATE TABLE productos (
             id INTEGER PRIMARY KEY AUTOINCREMENT, 
-            descripcion VARCHAR(100), 
+            descripcion VARCHAR(100) UNIQUE, 
             precio INTEGER, 
             seccion VARCHAR(20))
             """)
