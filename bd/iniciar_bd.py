@@ -12,10 +12,9 @@ try:
 except:
     print("La tabla productos ya existe")
 
-cursor.execute("INSERT INTO productos VALUES ('Notebook HP', 15, 'Computaciòn')")
-cursor.execute("INSERT INTO productos VALUES ('Celular Iphone', 30, 'Computaciòn')")
-cursor.execute("INSERT INTO productos VALUES ('Lavarropas Samsung', 120, 'Hogar')")
-cursor.execute("INSERT INTO productos VALUES ('Cocina Longvie', 145, 'Hogar')")
-cursor.execute("INSERT INTO productos VALUES ('Calefactor', 13, 'Hogar')")
-conexion.commit()
+cursor.execute("INSERT INTO productos VALUES ('Notebook HP', 15, 'Tecnologìa'")
+cursor.execute("INSERT INTO productos VALUES ('Notebook HP', 15, 'Tecnologìa'")
+cursor.execute("INSERT INTO productos VALUES ('Notebook HP', 15, 'Tecnologìa'")
+cursor.execute("INSERT INTO productos VALUES ('Notebook HP', 15, 'Tecnologìa'")
+
 conexion.close()
