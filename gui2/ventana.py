@@ -10,7 +10,7 @@ root.geometry("650x500")
 root.resizable(True, True)
 # Cambia el color de fondo
 root.config(bg="blue")
-# root.iconbitmap("python.png")
+root.iconbitmap("@python3.xbm")
 # Creo un frame y lo agrego a la raiz (root), antes debemos empaquetarlo
 miFrame = Frame()
 # anchor posiciona segùn los puntos cardinales, complento de side
