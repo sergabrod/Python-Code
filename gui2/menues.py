@@ -3,9 +3,17 @@
 
 from tkinter import *
 from tkinter import messagebox
+from tkinter import filedialog
 
 root = Tk()
 root.title("Uso de Menúes")
+
+
+def open_file():
+    archivo = filedialog.askopenfilename(title="Abrir un documento", initialdir="/home",
+                                         filetypes=(("Archivos de python", "*, .py"), ("Archivos de php", "*.php"),
+                                                    ("Todos los archivos", "*.*")))
+    print(archivo)
 
 
 def acerca_de():
@@ -37,11 +45,13 @@ def ssh_session():
     else:
         print("Conexión SSH cancelada.")
 
+
 barra_menu = Menu(root)
 root.config(menu=barra_menu, width=300, height=300)
 
 # ---- Creamos el menú ---------------------------------
 archivo_menu = Menu(barra_menu, tearoff=0)
+archivo_menu.add_command(label="Abrir...", command=open_file)
 archivo_menu.add_command(label="Nuevo")
 archivo_menu.add_command(label="Guardar")
 archivo_menu.add_command(label="Guardar como...")
