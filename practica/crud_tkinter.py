@@ -44,13 +44,8 @@ def limpiar_form():
 def crear():
     conexion = sqlite3.connect("ventas.bd")
     cursor = conexion.cursor()
-    cursor.execute("INSERT INTO usuarios VALUES (NULL, "
-                   "'" + nombre.get() +
-                   "', '" + apellido.get() +
-                   "', '" + domicilio.get() +
-                   "', '" + clave.get() +
-                   "', '" + comentario_f.get(1.0, END) + "')"
-                   )
+    datos = nombre.get(), apellido.get(), domicilio.get(), clave.get(), comentario_f.get(1.0, END)
+    cursor.execute("INSERT INTO usuarios VALUES (NULL,?, ?, ?, ?, ? )", datos)
     conexion.commit()
     messagebox.showinfo("BBDD", "¡Registro insertado con éxito!")
 
@@ -58,7 +53,7 @@ def crear():
 def leer():
     conexion = sqlite3.connect("ventas.bd")
     cursor = conexion.cursor()
-    cursor.execute("SELECT * FROM usuarios where id = " + id.get())
+    cursor.execute("SELECT * FROM usuarios where id = ?", id.get())
     usuariobd = cursor.fetchall()
 
     for usuario in usuariobd:
@@ -75,13 +70,9 @@ def leer():
 def actualizar():
     conexion = sqlite3.connect("ventas.bd")
     cursor = conexion.cursor()
-    cursor.execute("UPDATE usuarios SET "
-                   "nombre = '" + nombre.get() +
-                   "', apellido = '" + apellido.get() +
-                   "', domicilio = '" + domicilio.get() +
-                   "', password = '" + clave.get() +
-                   "', comentario = '" + comentario_f.get(1.0, END) +
-                   "' WHERE id =" + id.get())
+    datos = nombre.get(), apellido.get(), domicilio.get(), clave.get(), comentario_f.get(1.0, END), id.get()
+    cursor.execute("UPDATE usuarios set nombre = ?, apellido = ?, domicilio = ?, password = ?, comentario = ? " +
+                   "WHERE id = ?", datos)
     conexion.commit()
     messagebox.showinfo("BBDD", "¡Registro actualizado con éxito!")
 
@@ -89,7 +80,7 @@ def actualizar():
 def eliminar():
     conexion = sqlite3.connect("ventas.bd")
     cursor = conexion.cursor()
-    cursor.execute("DELETE FROM usuarios WHERE id =" + id.get())
+    cursor.execute("DELETE FROM usuarios WHERE id = ?", id.get())
     conexion.commit()
     messagebox.showinfo("BBDD", "¡Registro eliminado con éxito!")
 
