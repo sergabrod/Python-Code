@@ -55,6 +55,37 @@ def crear():
     messagebox.showinfo("BBDD", "¡Registro insertado con éxito!")
 
 
+def leer():
+    conexion = sqlite3.connect("ventas.bd")
+    cursor = conexion.cursor()
+    cursor.execute("SELECT * FROM usuarios where id = " + id.get())
+    usuariobd = cursor.fetchall()
+
+    for usuario in usuariobd:
+        id.set(usuario[0])
+        nombre.set(usuario[1])
+        apellido.set(usuario[2])
+        domicilio.set(usuario[1])
+        clave.set(usuario[4])
+        comentario_f.insert(1.0, usuario[5])
+
+    conexion.commit()
+
+
+def actualizar():
+    conexion = sqlite3.connect("ventas.bd")
+    cursor = conexion.cursor()
+    cursor.execute("UPDATE usuarios SET "
+                   "nombre = '" + nombre.get() +
+                   "', apellido = '" + apellido.get() +
+                   "', domicilio = '" + domicilio.get() +
+                   "', password = '" + clave.get() +
+                   "', comentario = '" + comentario_f.get(1.0, END) +
+                   "' WHERE id =" + id.get())
+    conexion.commit()
+    messagebox.showinfo("BBDD", "¡Registro actualizado con éxito!")
+
+
 root = Tk()
 
 # -------------- Creación de la barra de menú ----------------------------------------------------------
@@ -71,8 +102,8 @@ borrar_menu.add_command(label="Limpiar", command=limpiar_form)
 
 crud_menu = Menu(barra_menu, tearoff=0)
 crud_menu.add_command(label="Crear", command=crear)
-crud_menu.add_command(label="Leer")
-crud_menu.add_command(label="Actualizar")
+crud_menu.add_command(label="Leer", command=leer)
+crud_menu.add_command(label="Actualizar", command=actualizar)
 crud_menu.add_command(label="Borrar")
 
 ayuda_menu = Menu(barra_menu, tearoff=0)
@@ -141,14 +172,13 @@ frame_btn.pack()
 create_btn = Button(frame_btn, text="Create", command=crear)
 create_btn.grid(row=0, column=0, sticky="e", padx=10, pady=10)
 
-read_btn = Button(frame_btn, text="Read")
+read_btn = Button(frame_btn, text="Read", command=leer)
 read_btn.grid(row=0, column=1, sticky="e", padx=10, pady=10)
 
-update_btn = Button(frame_btn, text="Update")
+update_btn = Button(frame_btn, text="Update", command=actualizar)
 update_btn.grid(row=0, column=2, sticky="e", padx=10, pady=10)
 
 delete_btn = Button(frame_btn, text="Delete")
 delete_btn.grid(row=0, column=3, sticky="e", padx=10, pady=10)
 
 root.mainloop()
-
