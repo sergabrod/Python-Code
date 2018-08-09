@@ -86,6 +86,14 @@ def actualizar():
     messagebox.showinfo("BBDD", "¡Registro actualizado con éxito!")
 
 
+def eliminar():
+    conexion = sqlite3.connect("ventas.bd")
+    cursor = conexion.cursor()
+    cursor.execute("DELETE FROM usuarios WHERE id =" + id.get())
+    conexion.commit()
+    messagebox.showinfo("BBDD", "¡Registro eliminado con éxito!")
+
+
 root = Tk()
 
 # -------------- Creación de la barra de menú ----------------------------------------------------------
@@ -104,7 +112,7 @@ crud_menu = Menu(barra_menu, tearoff=0)
 crud_menu.add_command(label="Crear", command=crear)
 crud_menu.add_command(label="Leer", command=leer)
 crud_menu.add_command(label="Actualizar", command=actualizar)
-crud_menu.add_command(label="Borrar")
+crud_menu.add_command(label="Borrar", command=eliminar)
 
 ayuda_menu = Menu(barra_menu, tearoff=0)
 ayuda_menu.add_command(label="Licencia")
@@ -178,7 +186,7 @@ read_btn.grid(row=0, column=1, sticky="e", padx=10, pady=10)
 update_btn = Button(frame_btn, text="Update", command=actualizar)
 update_btn.grid(row=0, column=2, sticky="e", padx=10, pady=10)
 
-delete_btn = Button(frame_btn, text="Delete")
+delete_btn = Button(frame_btn, text="Delete", command=eliminar)
 delete_btn.grid(row=0, column=3, sticky="e", padx=10, pady=10)
 
 root.mainloop()
